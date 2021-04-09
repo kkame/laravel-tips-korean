@@ -1162,7 +1162,7 @@ adminlte.header를 로드하려고 시도합니다. 해당 파일이 없을 경�
 - [정규식을 사용한 경로 매개 변수 유효성 검사](#route-parameters-validation-with-regexp)
 - [속도 제한 : 글로벌 및 게스트 / 사용자 용](#rate-limiting-global-and-for-guestsusers)
 - [경로에 매개 변수로 쿼리스트링을 추가하기](#query-string-parameters-to-routes)
-- [Separate Routes by Files](#separate-routes-by-files)
+- [파일별로 라우트 분리](#separate-routes-by-files)
 - [Translate Resource Verbs](#translate-resource-verbs)
 - [커스텀 리소스 라우트 네임](https://gitlocalize.com/repo/5718/ko/README.md#custom-resource-route-names)
 - [더 읽기 쉬운 경로 목록](#more-readable-route-list)
