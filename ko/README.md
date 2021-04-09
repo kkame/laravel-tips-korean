@@ -25,37 +25,37 @@
 
 ⬆️ [맨 위로 이동](#laravel-tips) ➡️ [다음 (모델 관계)](#models-relations)
 
-- [Eloquent 날짜 관련 검색 메서드](#eloquent-where-date-methods)
-- [값의 증가 및 감소](#increments-and-decrements)
-- [타임 스탬프 컬럼이 없을 때](#no-timestamp-columns)
-- [옵저버로 로그인 한 사용자 지정](#set-logged-in-user-with-observers)
-- [소프트 삭제 : 다중 복원](#soft-deletes-multiple-restore)
-- [모델 all: columns](#model-all-columns)
-- [실패하거나 실패하지 않기](#to-fail-or-not-to-fail)
-- [열 이름 변경](#column-name-change)
-- [쿼리 결과에 대한 개별 수정](#map-query-results)
-- [기본 타임 스탬프 필드 변경](#change-default-timestamp-fields)
-- [created_at을 손쉽게 정렬하기](#quick-order-by-created_at)
-- [레코드 생성시 자동으로 생성되는 열 값](#automatic-column-value-when-creating-records)
-- [DB Raw 쿼리 계산을 더 빠르게](#db-raw-query-calculations-run-faster)
-- [한개 이상의 스코프](#more-than-one-scope)
-- [카본을 전환해줄 필요가 없습니다](#no-need-to-convert-carbon)
-- [첫 글자로 그룹화](#grouping-by-first-letter)
-- [열 업데이트 안 함](#never-update-the-column)
-- [여러개를 찾기](#find-many)
-- [Key로 찾기](#find-by-key)
-- [자동 증가 대신 UUID 사용](#use-uuid-instead-of-auto-increment)
-- [Laravel Way의 sub select](#sub-selects-in-laravel-way)
-- [일부 열 숨기기](#hide-some-columns)
-- [정확한 DB 오류](#exact-db-error)
-- [쿼리 빌더에서의 소프트 삭제](#soft-deletes-with-query-builder)
-- [올바른 오래된 SQL 쿼리](#good-old-sql-query)
-- [DB 트랜잭션 사용](#use-db-transactions)
-- [업데이트 또는 생성](#update-or-create)
-- [저장시 캐시 삭제](#forget-cache-on-save)
-- [Created_at 및 Updated_at 형식 변경](#change-format-of-created_at-and-updated_at)
-- [JSON에 배열 유형 저장](#storing-array-type-into-json)
-- [모델 사본 만들기](#make-a-copy-of-the-model)
+- [Eloquent where date methods](#eloquent-where-date-methods)
+- [Increments and decrements](#increments-and-decrements)
+- [No timestamp columns](#no-timestamp-columns)
+- [Set logged in user with Observers](#set-logged-in-user-with-observers)
+- [Soft-deletes: multiple restore](#soft-deletes-multiple-restore)
+- [Model all: columns](#model-all-columns)
+- [To Fail or not to Fail](#to-fail-or-not-to-fail)
+- [Column name change](#column-name-change)
+- [Map query results](#map-query-results)
+- [Change Default Timestamp Fields](#change-default-timestamp-fields)
+- [Quick Order by created_at](#quick-order-by-created_at)
+- [Automatic Column Value When Creating Records](#automatic-column-value-when-creating-records)
+- [DB Raw Query Calculations Run Faster](#db-raw-query-calculations-run-faster)
+- [More than One Scope](#more-than-one-scope)
+- [No Need to Convert Carbon](#no-need-to-convert-carbon)
+- [Grouping by First Letter](#grouping-by-first-letter)
+- [Never Update the Column](#never-update-the-column)
+- [Find Many](#find-many)
+- [Find by Key](#find-by-key)
+- [Use UUID instead of auto-increment](#use-uuid-instead-of-auto-increment)
+- [Sub-selects in Laravel Way](#sub-selects-in-laravel-way)
+- [Hide Some Columns](#hide-some-columns)
+- [Exact DB Error](#exact-db-error)
+- [Soft-Deletes with Query Builder](#soft-deletes-with-query-builder)
+- [Good Old SQL Query](#good-old-sql-query)
+- [Use DB Transactions](#use-db-transactions)
+- [Update or Create](#update-or-create)
+- [Forget Cache on Save](#forget-cache-on-save)
+- [Change Format of Created_at and Updated_at](#change-format-of-created_at-and-updated_at)
+- [Storing Array Type into JSON](#storing-array-type-into-json)
+- [Make a Copy of the Model](#make-a-copy-of-the-model)
 
 ### Eloquent 날짜 관련 검색 메서드
 
@@ -174,7 +174,7 @@ User::latest()->get();
 
 기본적으로 `latest()` 는 `created_at`을 이용하여 정렬합니다.
 
-`created_at` 오름차순으로 정렬하는 반대 메소드 `oldest()` 가 있습니다.
+`created_at` 오름차순으로 정렬하는, 반대 메소드 `oldest()`도 있습니다.
 
 ```php
 User::oldest()->get();
@@ -352,7 +352,7 @@ $users = User::all()->makeHidden(['email_verified_at', 'deleted_at']);
 
 ### 정확한 DB 오류
 
-Eloquent Query 예외를 잡으려면 기본 Exception 클래스 대신 특정 ` QueryException `을 사용하면 오류의 정확한 SQL 코드를 얻을 수 있습니다.
+Eloquent Query 예외를 잡으려면 기본 Exception 클래스 대신 특정 `QueryException`을 사용하면 오류의 정확한 SQL 코드를 얻을 수 있습니다.
 
 ```php
 try {
@@ -509,34 +509,34 @@ $billing->save();
 
 ## 모델 관계
 
-⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (DB Models and Eloquent)](#db-models-and-eloquent) ➡️ [다음 (Migrations)](#migrations)
+⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (DB 모델 및 Eloquent)](#db-models-and-eloquent) ➡️ [다음 (마이그레이션)](#migrations)
 
-- [Eloquent 관계에 대한 OrderBy](#orderby-on-eloquent-relationships)
-- [조건부 관계](#conditional-relationships)
-- [원시 DB 쿼리 : havingRaw ()](#raw-db-queries-havingraw)
-- [Eloquent has () 더 깊게](#eloquent-has-deeper)
-- [많이있다. 정확히 몇 개입니까?](#has-many-how-many-exactly)
-- [기본 모델](#default-model)
-- [hasMany를 사용하여 Many 만들기](#use-hasmany-to-create-many)
-- [정확한 컬럼을 통한 빠른 로딩](#eager-loading-with-exact-columns)
-- [쉽게 부모 updated_at 터치](#touch-parent-updated_at-easily)
-- [관계가 있는지 항상 확인](#always-check-if-relationship-exists)
-- [withCount ()를 사용하여 하위 관계 레코드 계산](#use-withcount-to-calculate-child-relationships-records)
-- [관계에 대한 추가 필터 쿼리](#extra-filter-query-on-relationships)
-- [관계를 항상로드하지만 동적으로로드](#load-relationships-always-but-dynamically)
-- [belongsTo 대신 hasMany를 사용하세요.](#instead-of-belongsto-use-hasmany)
-- [피벗 테이블 이름 바꾸기](#rename-pivot-table)
-- [한 줄로 상위 업데이트](#update-parent-in-one-line)
-- [Laravel 7+ 외래 키](#laravel-7-foreign-keys)
-- [두 "whereHas"결합](#combine-two-wherehas)
-- [관계 방법이 있는지 확인](#check-if-relationship-method-exists)
-- [추가 관계가있는 피벗 테이블](#pivot-table-with-extra-relations)
-- [즉시로드 수](#load-count-on-the-fly)
-- [관계 순서 무작위 화](#randomize-relationship-order)
+- [OrderBy on Eloquent relationships](#orderby-on-eloquent-relationships)
+- [Conditional relationships](#conditional-relationships)
+- [Raw DB 쿼리: havingRaw()](#raw-db-queries-havingraw)
+- [Eloquent has()를 더 깊게](#eloquent-has-deeper)
+- [Has Many. 정확히 얼마나 많은 것을 원하나요?](#has-many-how-many-exactly)
+- [Default model](#default-model)
+- [hasMany를 이용한 다중 생성](#use-hasmany-to-create-many)
+- [빠른 로딩에서 필요한 컬럼만 사용하기](#eager-loading-with-exact-columns)
+- [쉽게 상위 모델의 updated_at 갱신하기](#touch-parent-updated_at-easily)
+- [관계가 존재하는지 항상 확인하세요](#always-check-if-relationship-exists)
+- [withCount()를 사용하여 하위 관계 레코드의 갯수 확인](#use-withcount-to-calculate-child-relationships-records)
+- [관계에서 필터 쿼리 추가하기](#extra-filter-query-on-relationships)
+- [관계를 항상 로드하지만 동적으로도 로드하기](#load-relationships-always-but-dynamically)
+- [Instead of belongsTo, use hasMany](#instead-of-belongsto-use-hasmany)
+- [Rename Pivot Table](#rename-pivot-table)
+- [한 줄로 상위 모델 업데이트](#update-parent-in-one-line)
+- [Laravel 7이상에서 외래 키](#laravel-7-foreign-keys)
+- [Combine Two "whereHas"](#combine-two-wherehas)
+- [관계 메서드가 있는지 확인하기](#check-if-relationship-method-exists)
+- [추가 관계가 있는 피벗 테이블](#pivot-table-with-extra-relations)
+- [즉석으로 관계 갯수 구해오기](#load-count-on-the-fly)
+- [Randomize Relationship Order](#randomize-relationship-order)
 
 ### Eloquent 관계에 대한 OrderBy
 
-Eloquent 관계에서 직접 orderBy ()를 지정할 수 있습니다.
+Eloquent 관계에서 직접 orderBy()를 지정할 수 있습니다.
 
 ```php
 public function products()
@@ -568,7 +568,7 @@ public function approved_comments()
 }
 ```
 
-### 원시 DB 쿼리 : havingRaw ()
+### Raw DB 쿼리: havingRaw()
 
 `havingRaw()` 이후의 `groupBy()` 함수를 포함하여 다양한 위치에서 RAW DB 쿼리를 사용할 수 있습니다.
 
@@ -576,9 +576,9 @@ public function approved_comments()
 Product::groupBy('category_id')->havingRaw('COUNT(*) > 1')->get();
 ```
 
-### Eloquent has () 더 깊게
+### Eloquent has()를 더 깊게
 
-Eloquent `has()` 함수를 사용하여 두 계층 깊이 관계를 쿼리 할 수 있습니다!
+Eloquent `has()` 함수를 사용하여 두 단계의 관계를 쿼리 할 수 있습니다!
 
 ```php
 // Author -> hasMany(Book::class);
@@ -586,9 +586,9 @@ Eloquent `has()` 함수를 사용하여 두 계층 깊이 관계를 쿼리 할 �
 $authors = Author::has('books.ratings')->get();
 ```
 
-### 많이있다. 정확히 몇 개입니까?
+### Has Many. 정확히 얼마나 많은 것을 원하나요?
 
-Eloquent `hasMany()` 관계에서 X 양의 하위 레코드가있는 레코드를 필터링 할 수 있습니다.
+Eloquent `hasMany()` 관계에서 지정한 양의 하위 레코드가 있는 레코드를 필터링 할 수 있습니다.
 
 ```php
 // Author -> hasMany(Book::class)
@@ -597,7 +597,7 @@ $authors = Author::has('books', '>', 5)->get();
 
 ### 기본 모델
 
-$ post-&gt; user가 존재하지 않는 경우 `{{ $post->user->name }}` 과 같이 호출 할 때 치명적인 오류를 방지하기 위해 `belongsTo` 관계에 기본 모델을 할당 할 수 있습니다.
+$post-&gt;user가 존재하지 않는 경우 `{{ $post->user->name }}` 과 같이 호출 할 때 치명적인 오류를 방지하기 위해 `belongsTo` 관계에 기본 모델을 할당 할 수 있습니다.
 
 ```php
 public function user()
@@ -606,7 +606,7 @@ public function user()
 }
 ```
 
-### hasMany를 사용하여 Many 만들기
+### hasMany를 이용한 다중 생성
 
 `hasMany()` 관계가있는 경우 `saveMany()` 를 사용하여 "부모"개체의 여러 "자식"항목을 모두 한 문장으로 저장할 수 있습니다.
 
@@ -618,23 +618,23 @@ $post->comments()->saveMany([
 ]);
 ```
 
-### 정확한 컬럼을 사용한 빠른 로딩
+### 빠른 로딩에서 필요한 컬럼만 사용하기
 
-Laravel Eager Loading을 수행하고 관계에서 얻고 자하는 정확한 열을 지정할 수 있습니다.
+Laravel Eager Loading을 실행할 때 관계에서 필요한 컬럼만 가져올 수 있습니다.
 
 ```php
 $users = App\Book::with('author:id,name')->get();
 ```
 
-더 깊은 두 번째 수준의 관계에서도 그렇게 할 수 있습니다.
+한단계를 거치는 관계에서도 사용 할 수 있습니다.
 
 ```php
 $users = App\Book::with('author.country:id,name')->get();
 ```
 
-### 쉽게 부모 updated_at 터치
+### 쉽게 상위 모델의 updated_at 갱신하기
 
-레코드를 업데이트하고 상위 관계의 `updated_at` 열을 업데이트하려면 (예 : 새 게시물 댓글을 추가하고 `posts.updated_at` 를 갱신하려는 경우) `$touches = ['post'];` 자식 모델의 속성.
+레코드를 업데이트하고 상위 관계의 `updated_at` 열을 갱신하려면 (예 : 새 댓글을 추가하고 게시글 `posts.updated_at`를 갱신하려는 경우) 자식 모델에 `$touches = ['post'];`속성을 추가.
 
 ```php
 class Comment extends Model
@@ -643,15 +643,15 @@ class Comment extends Model
 }
 ```
 
-### 관계가 있는지 항상 확인
+### 관계가 존재하는지 항상 확인하세요
 
-**이제까지** 결코 `$model->relationship->field` 관계 객체가 여전히 존재하는지 확인하지 않고.
+**지금까지는** `$model->relationship->field`처럼 관계 객체가 여전히 존재하는지 확인하지 않고 사용했습니다.
 
-코드 외부에서 다른 사람의 대기열 작업 등에 의해 어떤 이유로 든 삭제 될 수 있습니다. `if-else` , 또는 `{{ $model->relationship->field ?? '' }}` (블레이드) 또는 `{{ optional($model->relationship)->field }}` .
+현재 동작하는 코드 외부, 즉 다른 사람의 대기열 작업 등 어떤 이유로든 관계는 삭제 될 수 있습니다. `if-else` , 또는 `{{ $model->relationship->field ?? '' }}` 또는 (블레이드)`{{ optional($model->relationship)->field }}`를 사용하세요.
 
-### withCount ()를 사용하여 하위 관계 레코드 계산
+### withCount()를 사용하여 하위 관계 레코드의 갯수 확인
 
-`hasMany()` 관계가 있고 "자식"항목을 계산하려면 특수 쿼리를 작성하지 마십시오. 예를 들어, User 모델에 대한 게시물과 댓글이있는 경우 `withCount()` 작성하십시오.
+`hasMany()` 관계에서 "자식"항목을 갯수를 확인하려면 쿼리를 따로 작성하지 마세요. 예를 들어, User 모델에 대한 게시물과 댓글이 있을 경우 `withCount()` 사용하세요.
 
 ```php
 public function index()
@@ -661,7 +661,7 @@ public function index()
 }
 ```
 
-그런 다음 블레이드 파일에서 `{relationship}_count` 속성을 사용하여 해당 번호에 액세스합니다.
+그런 다음 블레이드 파일에서 `{relationship}_count` 속성을 사용하여 해당 갯수를 가져올 수 있습니다.
 
 ```blade
 @foreach ($users as $user)
@@ -673,15 +673,15 @@ public function index()
 @endforeach
 ```
 
-해당 필드로 주문할 수도 있습니다.
+해당 필드로 정렬할 수도 있습니다.
 
 ```php
 User::withCount('comments')->orderBy('comments_count', 'desc')->get();
 ```
 
-### 관계에 대한 추가 필터 쿼리
+### 관계에서 필터 쿼리 추가하기
 
-관계 데이터를로드하려면 클로저 함수에서 몇 가지 제한 또는 순서를 지정할 수 있습니다. 예를 들어, 가장 큰 도시가 3 개만있는 국가를 얻으려면 다음 코드가 있습니다.
+관계 데이터를 불러올때 클로저 함수에서 몇 가지 제한 또는 순서를 지정할 수 있습니다. 예를 들어, 가장 큰 도시가 3 개만 있는 국가를 얻으려면 다음과 같이 코드를 작성하면 됩니다.
 
 ```php
 $countries = Country::with(['cities' => function($query) {
@@ -690,9 +690,9 @@ $countries = Country::with(['cities' => function($query) {
 }])->get();
 ```
 
-### 관계를 항상로드하지만 동적으로로드
+### 관계를 항상 로드하지만 동적으로도 로드하기
 
-모델과 함께 항상로드 할 관계를 지정할 수있을뿐만 아니라 생성자 메서드에서 동적으로 수행 할 수 있습니다.
+모델과 함께 항상 로드 할 관계를 지정할 수 있을 뿐만 아니라 생성자 메서드에서 동적으로 처리할 수도 있습니다.
 
 ```php
 class ProductTag extends Model
@@ -712,18 +712,18 @@ class ProductTag extends Model
 
 ### belongsTo 대신 hasMany를 사용하세요.
 
-`belongsTo` 관계의 경우 하위 레코드를 만들 때 부모의 ID를 전달하는 대신 `hasMany` 관계를 사용하여 더 짧은 문장을 만듭니다.
+`belongsTo` 관계에서 하위 레코드를 만들 때 부모의 ID를 전달하는 방식 대신, `hasMany` 관계를 사용하여 더 짧은 문장을 만들 수 있습니다.
 
 ```php
-// if Post -> belongsTo(User), and User -> hasMany(Post)...
-// Then instead of passing user_id...
+// 만약 Post -> belongsTo(User)이고, User -> hasMany(Post) 라면...
+// user_id를 넘겨주는 대신...
 Post::create([
     'user_id' => auth()->id(),
     'title' => request()->input('title'),
     'post_text' => request()->input('post_text'),
 ]);
 
-// Do this
+// 이렇게 사용하세요
 auth()->user()->posts()->create([
     'title' => request()->input('title'),
     'post_text' => request()->input('post_text'),
@@ -744,42 +744,42 @@ public function podcasts() {
 }
 ```
 
-제어 장치:
+컨트롤러:
 
 ```php
 $podcasts = $user->podcasts();
 foreach ($podcasts as $podcast) {
-    // instead of $podcast->pivot->created_at ...
+    // $podcast->pivot->created_at 대신에...
     echo $podcast->subscription->created_at;
 }
 ```
 
-### 한 줄로 상위 업데이트
+### 한 줄로 상위 모델 업데이트
 
-`belongsTo()` 관계가있는 경우 동일한 문장에서 Eloquent 관계 데이터를 업데이트 할 수 있습니다.
+`belongsTo()` 관계일 경우 한 문장으로 Eloquent 관계 데이터를 업데이트 할 수 있습니다.
 
 ```php
-// if Project -> belongsTo(User::class)
+// 만약 Project -> belongsTo(User::class)이라면
 $project->user->update(['email' => 'some@gmail.com']);
 ```
 
-### Laravel 7+ 외래 키
+### Laravel 7이상에서 외래 키
 
 Laravel 7부터 마이그레이션시 관계 필드에 대해 두 줄을 작성할 필요가 없습니다. 하나는 필드 용이고 다른 하나는 외래 키용입니다. `foreignId()` 메소드를 사용하십시오.
 
 ```php
-// Before Laravel 7
+// Laravel 7 이전
 Schema::table('posts', function (Blueprint $table)) {
     $table->unsignedBigInteger('user_id');
     $table->foreign('user_id')->references('id')->on('users');
 }
 
-// From Laravel 7
+// Laravel 7 부터
 Schema::table('posts', function (Blueprint $table)) {
     $table->foreignId('user_id')->constrained();
 }
 
-// Or, if your field is different from the table reference
+// 또는, 필드가 참조 테이블과 다른 경우
 Schema::table('posts', function (Blueprint $table)) {
     $table->foreignId('created_by_id')->constrained('users', 'column');
 }
@@ -797,31 +797,31 @@ User::whereHas('roles', function($query) {
 ->get();
 ```
 
-### 관계 방법이 있는지 확인
+### 관계 메서드가 있는지 확인하기
 
-Eloquent 관계 이름이 동적이고 해당 이름과의 관계가 객체에 존재하는지 확인해야하는 경우 PHP 함수 `method_exists($object, $methodName)`
+Eloquent 관계 이름이 동적이고 해당 이름과의 관계가 객체에 존재하는지 확인해야 하는 경우 PHP 함수 `method_exists($object, $methodName)`를 사용하세요.
 
 ```php
 $user = User::first();
 if (method_exists($user, 'roles')) {
-	// Do something with $user->roles()->...
+	// $user->roles()-> 와 함께 관계 메서드 사용하기...
 }
 ```
 
-### 추가 관계가있는 피벗 테이블
+### 추가 관계가 있는 피벗 테이블
 
-다 대다 관계에서 피벗 테이블에는 추가 필드 및 다른 모델에 대한 추가 관계가 포함될 수 있습니다.
+다대다 관계에서 피벗 테이블에는 추가 필드 및 다른 모델에 대한 추가 관계가 포함될 수 있습니다.
 
-그런 다음 별도의 피벗 모델을 생성합니다.
+다음과 같이 별도의 피벗 모델을 생성합니다.
 
 ```
 php artisan make:model RoleUser --pivot
 ```
 
-다음으로 `->using()` 메서드를 사용하여 `belongsToMany()`에 지정합니다. 그런 다음 예제와 같이 쩌는 것을 할 수 있습니다.
+그다음 `->using()` 메서드를 사용하여 `belongsToMany()`에 지정합니다. 그러면 다음 예제와 같이 쩌는 것을 할 수 있습니다.
 
 ```php
-// in app/Models/User.php
+// app/Models/User.php 에서
 public function roles()
 {
 	return $this->belongsToMany(Role::class)
@@ -829,8 +829,7 @@ public function roles()
 	    ->withPivot(['team_id']);
 }
 
-// app/Models/RoleUser.php: notice extends Pivot, not Model
-use Illuminate\Database\Eloquent\Relations\Pivot;
+// app/Models/RoleUser.php 모델은 Model이 아닌 Illuminate\Database\Eloquent\Relations\Pivot을 확장하여 사용합니다;
 
 class RoleUser extends Pivot
 {
@@ -840,22 +839,22 @@ class RoleUser extends Pivot
 	}
 }
 
-// Then, in Controller, you can do:
+// 그러면 Controller에서 아래와 같이 실행할 수 있습니다.
 $firstTeam = auth()->user()->roles()->first()->pivot->team->name;
 ```
 
-### 즉시로드 수
+### 즉석으로 관계 갯수 구해오기
 
-웅변의뿐만 아니라 `withCount()` 관련 기록을 계산하는 방법, 당신은 또한 더불어이 온 - 더 - 플라이 수를로드 할 수 있습니다 `loadCount()` :
+관련 레코드의 갯수를 가져오기 위해 Eloquent의 `withCount()` 메서드 외에도 `loadCount()`를 사용하여 즉석으로 갯수를 가져올 수 도 있습니다.
 
 ```php
-// if your Book hasMany Reviews...
+// 만약 Book이 여러개의 Reviews를 가지고 있다면...
 $book = App\Book::first();
 
 $book->loadCount('reviews');
-// Then you get access to $book->reviews_count;
+// $book->reviews_count; 를 사용할 수 있습니다
 
-// Or even with extra condition
+// 또 추가 조건과 함께도 가능합니다
 $book->loadCount(['reviews' => function ($query) {
     $query->where('rating', 5);
 }]);
@@ -866,12 +865,12 @@ $book->loadCount(['reviews' => function ($query) {
 `inRandomOrder()`를 사용하여 Eloquent 쿼리 결과를 무작위화 할 수 있지만 이를 사용하여 쿼리로 로드하는 **relationship** 항목을 무작위화 할 수도 있습니다.
 
 ```php
-// If you have a quiz and want to randomize questions...
+// 퀴즈가 있고 질문을 무작위로 선택하려는 경우...
 
-// 1. If you want to get questions in random order:
+// 1. 무작위 순서로 질문을 받고 싶다면
 $questions = Question::inRandomOrder()->get();
 
-// 2. If you want to also get question options in random order:
+// 2. 무작위 순서로 질문 옵션을 가져오려면 다음과 같이 사용하세요.
 $questions = Question::with(['answers' => function($q) {
     $q->inRandomOrder();
 }])->inRandomOrder()->get();
@@ -881,18 +880,18 @@ $questions = Question::with(['answers' => function($q) {
 
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (모델 관계)](#models-relations) ➡️ [다음 (보기)](#views)
 
-- [부호없는 정수](#unsigned-integer)
-- [마이그레이션 순서](#order-of-migrations)
-- [시간대가있는 마이그레이션 필드](#migration-fields-with-timezones)
-- [데이터베이스 마이그레이션 열 유형](#database-migrations-column-types)
-- [기본 타임 스탬프](#default-timestamp)
-- [마이그레이션 상태](#migration-status)
-- [공간을 사용하여 마이그레이션 만들기](#create-migration-with-spaces)
-- [다른 열 뒤에 열 만들기](#create-column-after-another-column)
+- [Unsigned Integer](#unsigned-integer)
+- [Order of Migrations](#order-of-migrations)
+- [Migration fields with timezones](#migration-fields-with-timezones)
+- [Database migrations column types](#database-migrations-column-types)
+- [Default Timestamp](#default-timestamp)
+- [Migration Status](#migration-status)
+- [공백과 함께 마이그레이션 만들기](#create-migration-with-spaces)
+- [Create Column after Another Column](#create-column-after-another-column)
 
 ### 부호없는 정수
 
-`integer()` 대신 외래 키 마이그레이션의 경우 `unsignedInteger()` 유형 또는 `integer()->unsigned()` . 그렇지 않으면 SQL 오류가 발생할 수 있습니다.
+외래 키 마이그레이션의 경우 `integer()` 대신 `unsignedInteger()` 유형 또는 `integer()->unsigned()`를 사용하세요 . 그렇지 않으면 SQL 오류가 발생할 수 있습니다.
 
 ```php
 Schema::create('employees', function (Blueprint $table) {
@@ -912,11 +911,11 @@ Schema::create('employees', function (Blueprint $table) {
 
 ### 마이그레이션 순서
 
-당신은 DB 마이그레이션의 순서를 변경 단지에서 같은 파일의 타임 스탬프 이름을 바꾸려면 `2018_08_04_070443_create_posts_table.php` 에 `2018_07_04_070443_create_posts_table.php` (변경 `2018_08_04` 에 `2018_07_04` ).
+당신은 DB 마이그레이션의 순서를 변경하려면, 단지 다음과 같이 파일에서 타임 스탬프만 바꾸면 됩니다. `2018_08_04_070443_create_posts_table.php` 에서 `2018_07_04_070443_create_posts_table.php` 로 변경. (`2018_08_04` 에서 `2018_07_04` 로 변경).
 
-알파벳 순서로 실행됩니다.
+마이그레이션은 알파벳 순서로 실행됩니다.
 
-### 시간대가있는 마이그레이션 필드
+### 시간대가 있는 마이그레이션 필드
 
 마이그레이션에서 timezone에 대한 timetamps `timestamps()` 뿐만 아니라 `timestampsTz()` 도 있다는 것을 알고 계셨습니까?
 
@@ -929,11 +928,11 @@ Schema::create('employees', function (Blueprint $table) {
 });
 ```
 
-또한 `dateTimeTz()` , `timeTz()` , `timestampTz()` , `softDeletesTz()` 있습니다.
+또한 `dateTimeTz()` , `timeTz()` , `timestampTz()` , `softDeletesTz()` 도 있습니다.
 
 ### 데이터베이스 마이그레이션 열 유형
 
-마이그레이션을위한 흥미로운 열 유형이 있습니다. 여기에 몇 가지 예가 있습니다.
+마이그레이션을 위한 재밌는 열 유형이 있습니다. 몇 가지 예를 보여드리겠습니다.
 
 ```php
 $table->geometry('positions');
@@ -956,7 +955,7 @@ $table->timestamp('updated_at')->useCurrent();
 
 ### 마이그레이션 상태
 
-어떤 마이그레이션이 실행되었는지 아직 확인하고 싶다면 데이터베이스 "migrations"테이블을 볼 필요가 없습니다. `php artisan migrate:status` 명령을 실행할 수 있습니다.
+어떤 마이그레이션이 아직 실행되지 않았는지 확인하고 싶을때, 굳이 데이터베이스에서 "migrations"테이블을 볼 필요가 없습니다. `php artisan migrate:status` 명령을 실행해보세요.
 
 결과 예 :
 
@@ -970,7 +969,7 @@ $table->timestamp('updated_at')->useCurrent();
 +------+------------------------------------------------+-------+
 ```
 
-### 공간으로 마이그레이션 만들기
+### 공백과 함께 마이그레이션 만들기
 
 `make:migration` 명령어를 입력 할 때 `create_transactions_table`과 같이 부분 사이에 반드시 밑줄 `_` 기호를 사용할 필요는 없습니다. 이름을 따옴표로 묶은 다음 밑줄 대신 공백을 사용할 수 있습니다.
 
@@ -986,7 +985,7 @@ php artisan make:migration "create transactions table"
 
 ### 다른 열 뒤에 열 만들기
 
-기존 테이블에 새 열을 추가하는 경우 반드시 목록에서 마지막 열이 될 필요는 없습니다. 생성해야하는 열을 지정할 수 있습니다.
+기존 테이블에 새 열을 추가할 때 반드시 마지막 열로 만들 필요는 없습니다. 생성해야 하는 열을 특정 열의 뒤로 지정할 수 있습니다.
 
 ```php
 Schema::table('users', function (Blueprint $table) {
@@ -994,20 +993,20 @@ Schema::table('users', function (Blueprint $table) {
 });
 ```
 
-## 견해
+## 뷰
 
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (마이그레이션)](#migrations) ➡️ [다음 (라우팅)](#routing)
 
-- [foreach의 $ loop 변수](#loop-variable-in-foreach)
-- [보기 파일이 있습니까?](#does-view-file-exist)
-- [오류 코드 블레이드 페이지](#error-code-blade-pages)
-- [컨트롤러없이보기](#view-without-controllers)
-- [블레이드 @auth](#blade-auth)
-- [블레이드의 2 단계 $ loop 변수](#two-level-loop-variable-in-blade)
-- [나만의 블레이드 지침 만들기](#create-your-own-blade-directive)
-- [블레이드 지시문 : IncludeIf, IncludeWhen, IncludeFirst](#blade-directives-includeif-includewhen-includefirst)
+- [foreach의 $loop 변수](#loop-variable-in-foreach)
+- [뷰 파일이 있습니까?](#does-view-file-exist)
+- [Error code Blade pages](#error-code-blade-pages)
+- [컨트롤러 없이 뷰 사용하기](#view-without-controllers)
+- [Blade @auth](#blade-auth)
+- [블레이드의 2 단계 $loop 변수](#two-level-loop-variable-in-blade)
+- [나만의 블레이드 지시문 만들기](#create-your-own-blade-directive)
+- [Blade Directives: IncludeIf, IncludeWhen, IncludeFirst](#blade-directives-includeif-includewhen-includefirst)
 
-### foreach의 $ loop 변수
+### foreach의 $loop 변수
 
 foreach 루프 내에서 `$loop` 변수를 사용하여 현재 항목이 처음 / 마지막인지 확인합니다.
 
@@ -1027,9 +1026,9 @@ foreach 루프 내에서 `$loop` 변수를 사용하여 현재 항목이 처음 
 
 `$loop->iteration` 또는 `$loop->count` 와 같은 다른 속성도 있습니다. [공식 문서](https://laravel.com/docs/master/blade#the-loop-variable) 에서 자세히 알아보십시오.
 
-### 보기 파일이 있습니까?
+### 뷰 파일이 있습니까?
 
-실제로로드하기 전에보기 파일이 있는지 확인할 수 있습니다.
+실제로 뷰를 로드하기 전에 해당 뷰 파일이 있는지 확인할 수 있습니다.
 
 ```php
 if (view()->exists('custom.page')) {
@@ -1037,7 +1036,7 @@ if (view()->exists('custom.page')) {
 }
 ```
 
-뷰 배열을로드 할 수도 있으며 처음 존재하는 뷰만 실제로로드됩니다.
+로드 할 뷰 배열을 사용 할 수도 있으며, 이때는 처음 존재하는 뷰만 실제로 로드됩니다.
 
 ```php
 return view()->first(['custom.dashboard', 'dashboard'], $data);
@@ -1045,16 +1044,16 @@ return view()->first(['custom.dashboard', 'dashboard'], $data);
 
 ### 오류 코드 블레이드 페이지
 
-500과 같은 일부 HTTP 코드에 대한 특정 오류 페이지를 생성하려면이 코드를 파일 이름으로 `resources/views/errors/500.blade.php` 또는 `403.blade.php` 등에서 블레이드 파일로 생성하십시오. 해당 오류 코드의 경우 자동으로로드됩니다.
+500과 같은 일부 HTTP 코드에 대한 특정 오류 페이지를 생성하려면 이 코드를 파일 이름으로 `resources/views/errors/500.blade.php` 또는 `403.blade.php` 등으로 블레이드 파일을 만드세요. 해당 오류 코드에 맞게 자동으로 로드됩니다.
 
-### 컨트롤러없이보기
+### 컨트롤러 없이 뷰 사용하기
 
-경로가 특정 뷰만 표시하도록하려면 Controller 메서드를 생성하지 말고 `Route::view()` 함수를 사용하십시오.
+라우트가 특정 뷰만 보여준다면 Controller를 생성하지 말고 `Route::view()` 함수를 사용하십시오.
 
 ```php
-// Instead of this
+// 이것처럼 되어있거나
 Route::get('about', 'TextsController@about');
-// And this
+// 이것처럼 되어있다면
 class TextsController extends Controller
 {
     public function about()
@@ -1062,13 +1061,13 @@ class TextsController extends Controller
         return view('texts.about');
     }
 }
-// Do this
+// 이렇게 사용하세요
 Route::view('about', 'texts.about');
 ```
 
 ### 블레이드 @auth
 
-로그인 한 사용자를 확인하기위한 if 문 대신 `@auth` 지시문을 사용하세요.
+로그인 한 사용자를 확인하기위해 if 문 대신 `@auth` 지시문을 사용하세요.
 
 일반적인 방법 :
 
@@ -1094,9 +1093,9 @@ Route::view('about', 'texts.about');
 @endguest
 ```
 
-### 블레이드의 2 단계 $ loop 변수
+### 블레이드의 2 단계 $loop 변수
 
-Blade의 foreach에서는 2 단계 루프에서도 $ loop 변수를 사용하여 상위 변수에 도달 할 수 있습니다.
+Blade의 foreach에서는 2 단계 루프에서도 $loop 변수를 사용하여 상위 변수에 접근 할 수 있습니다.
 
 ```blade
 @foreach ($users as $user)
@@ -1108,11 +1107,12 @@ Blade의 foreach에서는 2 단계 루프에서도 $ loop 변수를 사용하여
 @endforeach
 ```
 
-### 나만의 블레이드 지침 만들기
+### 나만의 블레이드 지시문 만들기
 
-매우 쉽습니다. `app/Providers/AppServiceProvider.php` 에 자신 만의 메서드를 추가하기 만하면됩니다. 예를 들어, `<br>` 태그를 새 줄로 바꾸려면 다음과 같이하십시오.
+진짜 쉽습니다. `app/Providers/AppServiceProvider.php` 에 자신만의 메서드를 추가하기만 하면됩니다. 예를 들어, `<br>` 태그를 엔터로 바꾸려면 다음과 같이하십시오.
 
 ```blade
+// 블레이드에서
 <textarea>@br2nl($post->post_text)</textarea>
 ```
 
@@ -1129,9 +1129,9 @@ public function boot()
 
 ### 블레이드 지시문 : IncludeIf, IncludeWhen, IncludeFirst
 
-Blade 부분 파일이 실제로 존재하는지 확실하지 않은 경우 다음 조건 명령을 사용할 수 있습니다.
+Blade 부분적으로 사용하는 파일이 실제로 존재하는지 확실하지 않은 경우 다음 조건 명령을 사용할 수 있습니다.
 
-블레이드 파일이있는 경우에만 헤더를로드합니다.
+블레이드 파일이 있는 경우에만 헤더를 로드합니다.
 
 ```blade
 @includeIf('partials.header')
@@ -1143,7 +1143,7 @@ role_id가 1 인 사용자에 대해서만 헤더를로드합니다.
 @includeWhen(auth()->user()->role_id == 1, 'partials.header')
 ```
 
-누락 된 경우 adminlte.header를로드하려고 시도합니다. default.header를로드합니다.
+adminlte.header를 로드하려고 시도합니다. 해당 파일이 없을 경우에만 default.header를 로드합니다.
 
 ```blade
 @includeFirst('adminlte.header', 'default.header')
@@ -1151,25 +1151,25 @@ role_id가 1 인 사용자에 대해서만 헤더를로드합니다.
 
 ## 라우팅
 
-⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (보기)](#views) ➡️ [다음 (유효성 검사)](#validation)
+⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (뷰)](#views) ➡️ [다음 (유효성 검사)](#validation)
 
-- [그룹 내의 라우팅 그룹](#route-group-within-a-group)
-- [와일드 카드 하위 도메인](#wildcard-subdomains)
-- [경로 뒤에 무엇이 있습니까?](#whats-behind-the-routes)
-- [경로 모델 바인딩 : 키를 정의 할 수 있습니다.](#route-model-binding-you-can-define-a-key)
-- [Routes 파일에서 컨트롤러로 빠르게 이동](#quickly-navigate-from-routes-file-to-controller)
-- [경로 대체 : 일치하는 다른 경로가없는 경우](#route-fallback-when-no-other-route-is-matched)
-- [RegExp를 사용한 경로 매개 변수 유효성 검사](#route-parameters-validation-with-regexp)
-- [속도 제한 : 글로벌 및 게스트 / 사용자 용](#rate-limiting-global-and-for-guestsusers)
-- [경로에 대한 쿼리 문자열 매개 변수](#query-string-parameters-to-routes)
-- [파일별로 경로 분리](#separate-routes-by-files)
-- [자원 동사 번역](#translate-resource-verbs)
-- [사용자 지정 리소스 경로 이름](#custom-resource-route-names)
-- [더 읽기 쉬운 경로 목록](#more-readable-route-list)
+- [Route group within a group](#route-group-within-a-group)
+- [Wildcard subdomains](#wildcard-subdomains)
+- [라우트 뒤에는 무엇이 있을까요?](#whats-behind-the-routes)
+- [라우트에서 모델 바인딩 : 키를 지정 할 수 있습니다.](#route-model-binding-you-can-define-a-key)
+- [Quickly Navigate from Routes file to Controller](#quickly-navigate-from-routes-file-to-controller)
+- [대체 라우트 : 일치하는 다른 경로가 없는 경우](#route-fallback-when-no-other-route-is-matched)
+- [정규식을 사용한 경로 매개 변수 유효성 검사](#route-parameters-validation-with-regexp)
+- [Rate Limiting: Global and for Guests/Users](#rate-limiting-global-and-for-guestsusers)
+- [경로에 매개 변수로 쿼리스트링을 추가하기](#query-string-parameters-to-routes)
+- [Separate Routes by Files](#separate-routes-by-files)
+- [Translate Resource Verbs](#translate-resource-verbs)
+- [커스텀 리소스 라우트 네임](https://gitlocalize.com/repo/5718/ko/README.md#custom-resource-route-names)
+- [More Readable Route List](#more-readable-route-list)
 
 ### 그룹 내의 라우팅 그룹
 
-Routes에서 그룹 내 그룹을 생성하여 특정 미들웨어를 "상위"그룹의 일부 URL에만 할당 할 수 있습니다.
+라우트에서 그룹 내 그룹을 생성하여, 특정 미들웨어를 "상위"그룹의 일부 URL에만 할당 할 수 있습니다.
 
 ```php
 Route::group(['prefix' => 'account', 'as' => 'account.'], function() {
@@ -1184,7 +1184,7 @@ Route::group(['prefix' => 'account', 'as' => 'account.'], function() {
 
 ### 와일드 카드 하위 도메인
 
-동적 하위 도메인 이름으로 경로 그룹을 생성하고 해당 값을 모든 경로에 전달할 수 있습니다.
+동적인 하위 도메인 이름으로 라우트 그룹을 생성하고 해당 값을 모든 경로에 전달할 수 있습니다.
 
 ```php
 Route::domain('{username}.workspace.com')->group(function () {
@@ -1194,9 +1194,9 @@ Route::domain('{username}.workspace.com')->group(function () {
 });
 ```
 
-### 경로 뒤에 무엇이 있습니까?
+### 라우트 뒤에는 무엇이 있을까요?
 
-`Auth::routes()` 뒤에 실제로 어떤 경로가 있는지 알고 싶습니까? Laravel 7부터는 별도의 패키지에 있으므로 `/vendor/laravel/ui/src/AuthRouteMethods.php` 파일을 확인하십시오.
+`Auth::routes()` 에 실제로 어떤 경로들이 있는지 알고 싶나요? Laravel 7부터는 별도의 패키지에 있는 `/vendor/laravel/ui/src/AuthRouteMethods.php` 파일을 확인해보세요.
 
 ```php
 public function auth()
@@ -1227,11 +1227,11 @@ public function auth()
 }
 ```
 
-Laravel 7 전에 파일 확인 `/vendor/laravel/framework/src/illuminate/Routing/Router.php` .
+Laravel 7 이전이라면 `/vendor/laravel/framework/src/illuminate/Routing/Router.php` 파일을 확인해보세요.
 
-### 경로 모델 바인딩 : 키를 정의 할 수 있습니다.
+### 라우트에서 모델 바인딩 : 키를 지정 할 수 있습니다.
 
-당신은 같은 바인딩 경로 모델을 할 수있는 `Route::get('api/users/{user}', function (App\User $user) { … }` -.뿐만 아니라 ID 필드에 의해 당신이 원하는 경우 `{user}` 이 될 수있는 `username` 필드에 다음을 모델에 입력하십시오.
+라우트에 모델을 `Route::get('api/users/{user}', function (App\User $user) { … }` 이런식으로 ID 필드를 기준으로 바인딩 할 수 있을 뿐만 아니라, `{user}`를 `username` 필드로 변경하고 싶다면 다음과 같이 모델에 입력하면 됩니다.
 
 ```php
 public function getRouteKeyName() {
@@ -1243,7 +1243,7 @@ public function getRouteKeyName() {
 
 이것은 Laravel 8 이전에는 선택 사항이었으며 Laravel 8에서 라우팅의 표준 기본 구문이되었습니다.
 
-다음과 같이 라우팅하는 대신 :
+다음과 같이 라우팅하는 대신
 
 ```php
 Route::get('page', 'PageController@action');
@@ -1257,18 +1257,18 @@ Route::get('page', [\App\Http\Controllers\PageController::class, 'action']);
 
 그런 다음 PhpStorm에서 **PageController** 를 클릭하고 수동으로 검색하는 대신 Controller로 직접 이동할 수 있습니다.
 
-또는 길이를 줄이려면 다음을 Routes 파일의 맨 위에 추가하십시오.
+또 길이를 줄이려면 다음과 같이 Routes 파일의 맨 위에 use 구분을 추가하십시오.
 
 ```php
 use App\Http\Controllers\PageController;
 
-// Then:
+// 요롷게~
 Route::get('page', [PageController::class, 'action']);
 ```
 
-### 경로 대체 : 일치하는 다른 경로가없는 경우
+### 대체 라우트 : 일치하는 다른 경로가 없는 경우
 
-찾을 수없는 경로에 대한 추가 로직을 지정하려면 기본 404 페이지를 표시하는 대신 경로 파일의 맨 끝에 특수 경로를 만들 수 있습니다.
+찾을 수 없는 경로에 대한 추가 로직을 지정하려면 기본 404 페이지를 표시하는 대신 라우트 파일의 맨 끝에 특수 경로를 만들 수 있습니다.
 
 ```php
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
@@ -1282,9 +1282,9 @@ Route::fallback(function() {
 });
 ```
 
-### RegExp를 사용한 경로 매개 변수 유효성 검사
+### 정규식을 사용한 경로 매개 변수 유효성 검사
 
-"where"매개 변수를 사용하여 경로에서 직접 매개 변수를 검증 할 수 있습니다. 매우 일반적인 경우는 `fr/blog` 및 `en/article/333` 과 같은 언어 로케일로 경로를 접두사로 지정하는 것입니다. 이 두 개의 첫 글자가 다른 언어에 사용되지 않도록하려면 어떻게해야합니까?
+"where"매개 변수를 사용하여 경로에서 직접 매개 변수를 검증 할 수 있습니다. 일반적으로 경로에 `fr/blog` 및 `en/article/333` 과 같이 언어 로케일로 접두사를 지정하는 경우가 있습니다. 이때 두 개의 첫 글자가 영어가 아닌 다른 언어가 사용되지 않도록하려면 어떻게해야 할까요?
 
 `routes/web.php` :
 
@@ -1300,7 +1300,7 @@ Route::group([
 
 ### 속도 제한 : 글로벌 및 게스트 / 사용자 용
 
-`throttle:60,1` 하여 일부 URL이 분당 최대 60 회 호출되도록 제한 할 수 있습니다.
+`throttle:60,1`을 사용하여 일부 URL은 분당 최대 60 회 호출되도록 제한 할 수 있습니다.
 
 ```php
 Route::middleware('auth:api', 'throttle:60,1')->group(function () {
@@ -1310,16 +1310,16 @@ Route::middleware('auth:api', 'throttle:60,1')->group(function () {
 });
 ```
 
-또한 공개 및 로그인 한 사용자에 대해 별도로 수행 할 수 있습니다.
+또한 게스트 및 로그인 한 사용자에 대해 별도로 지정 할 수 있습니다.
 
 ```php
-// maximum of 10 requests for guests, 60 for authenticated users
+// 게스트에 대해 최대 10 개의 요청, 인증 된 사용자에 대해 60 개
 Route::middleware('throttle:10|60,1')->group(function () {
     //
 });
 ```
 
-또한 DB 필드 users.rate_limit를 사용하고 특정 사용자에 대한 금액을 제한 할 수 있습니다.
+또한 DB 필드 users.rate_limit를 사용해 특정 사용자에 대한 제한 지정 할 수 있습니다.
 
 ```php
 Route::middleware('auth:api', 'throttle:rate_limit,1')->group(function () {
@@ -1329,9 +1329,9 @@ Route::middleware('auth:api', 'throttle:rate_limit,1')->group(function () {
 });
 ```
 
-### 경로에 대한 쿼리 문자열 매개 변수
+### 경로에 매개 변수로 쿼리스트링을 추가하기
 
-추가 매개 변수를 경로에 전달하면 배열에서 해당 키 / 값 쌍이 생성 된 URL의 쿼리 문자열에 자동으로 추가됩니다.
+라우트에 추가 매개 변수를 전달하면 배열의 키/값이 생성 될 URL의 쿼리 문자열에 자동으로 추가됩니다.
 
 ```php
 Route::get('user/{id}/profile', function ($id) {
@@ -1341,11 +1341,11 @@ Route::get('user/{id}/profile', function ($id) {
 $url = route('profile', ['id' => 1, 'photos' => 'yes']); // Result: /user/1/profile?photos=yes
 ```
 
-### 파일별로 경로 분리
+### 파일별로 라우트 분리
 
-당신이 특정 "섹션"에 관한 경로의 세트가있는 경우, 당신은 특별한에서 그들을 분리 할 수 `routes/XXXXX.php` 파일 및 단지에 포함 `routes/web.php`
+특정 "섹션"에 관한 경로가 셋트로 있는 경우, 별도의 `routes/XXXXX.php` 같은 파일로 분리해서 `routes/web.php`에 포함시킬 수 있습니다
 
-Taylor Otwell이 직접 [만든 Laravel Breeze의](https://github.com/laravel/breeze/blob/1.x/stubs/routes/web.php) `routes/auth.php` 예제 :
+Taylor Otwell이 직접 만든 [Laravel Breeze](https://github.com/laravel/breeze/blob/1.x/stubs/routes/web.php)의 `routes/auth.php` 예제 :
 
 ```php
 Route::get('/', function () {
@@ -1378,7 +1378,7 @@ Route::post('/register', [RegisteredUserController::class, 'store'])
 // ... A dozen more routes
 ```
 
-하지만 이 `include()`는 별도의 경로 파일에 접두사 / 미들웨어에 대해 동일한 설정이있는 경우에만 사용해야합니다. 그렇지 않으면 `app/Providers/RouteServiceProvider`에서 그룹화하는 것이 좋습니다.
+하지만 이 `include()`는 별도의 라우트 파일에 접두사 / 미들웨어에 대해 동일한 설정일 경우에만 사용해야합니다. 그렇지 않으면 `app/Providers/RouteServiceProvider`에서 그룹화하는 것이 좋습니다.
 
 ```php
 public function boot()
@@ -1400,9 +1400,9 @@ public function boot()
 }
 ```
 
-### 자원 동사 번역
+### 리소스 동사 번역
 
-리소스 컨트롤러를 사용하지만 SEO 목적으로 URL 동사를 영어가 아닌 것으로 변경하려는 경우 `/create` 대신 스페인어 `/crear` 를 원하면 `App\Providers\RouteServiceProvider` `Route::resourceVerbs()` 메서드를 사용하여 구성 할 수 있습니다. :
+리소스 컨트롤러를 사용하지만 SEO 목적으로 URL 동사를 영어가 아닌 것으로 변경하려는 경우 `/create` 대신 스페인어 `/crear` 를 원하면 `App\Providers\RouteServiceProvider` `Route::resourceVerbs()` 메서드를 사용하여 변경 할 수 있습니다.
 
 ```php
 public function boot()
@@ -1486,17 +1486,17 @@ Route::resource('p', ProductController::class)->names('products');
 +----------+---------------------------------+---------------------+
 ```
 
-## 확인
+## 검증
 
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (라우팅)](#routing) ➡️ [다음 (컬렉션)](#collections)
 
-- [이미지 유효성 검사](#image-validation)
-- [사용자 지정 유효성 검사 오류 메시지](#custom-validation-error-messages)
-- ["지금"또는 "어제"단어로 날짜 확인](#validate-dates-with-now-or-yesterday-words)
-- [일부 조건이있는 유효성 검사 규칙](#validation-rule-with-some-conditions)
-- [기본 검증 메시지 변경](#change-default-validation-messages)
-- [검증 준비](#prepare-for-validation)
-- [첫 번째 유효성 검사 오류시 중지](#stop-on-first-validation-error)
+- [Image validation](#image-validation)
+- [Custom validation error messages](#custom-validation-error-messages)
+- [Validate dates with "now" or "yesterday" words](#validate-dates-with-now-or-yesterday-words)
+- [Validation Rule with Some Conditions](#validation-rule-with-some-conditions)
+- [Change Default Validation Messages](#change-default-validation-messages)
+- [Prepare for Validation](#prepare-for-validation)
+- [Stop on First Validation Error](#stop-on-first-validation-error)
 
 ### 이미지 유효성 검사
 
@@ -1591,10 +1591,10 @@ $request->validate([
 
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (검증)](#validation) ➡️ [다음 (인증)](#auth)
 
-- [컬렉션에서 NULL로 필터링하지 마십시오.](#dont-filter-by-null-in-collections)
-- [사용자 정의 콜백 함수가있는 콜렉션에서 groupBy 사용](#use-groupby-on-collections-with-custom-callback-function)
-- [한 행의 여러 수집 방법](#multiple-collection-methods-in-a-row)
-- [페이지 매김으로 합계 계산](#calculate-sum-with-pagination)
+- [Don’t Filter by NULL in Collections](#dont-filter-by-null-in-collections)
+- [Use groupBy on Collections with Custom Callback Function](#use-groupby-on-collections-with-custom-callback-function)
+- [Multiple Collection Methods in a Row](#multiple-collection-methods-in-a-row)
+- [Calculate Sum with Pagination](#calculate-sum-with-pagination)
 
 ### 컬렉션에서 NULL로 필터링하지 마십시오.
 
@@ -1659,11 +1659,11 @@ $posts = $query->paginate(10);
 
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (컬렉션)](#collections) ➡️ [다음 (메일)](#mail)
 
-- [한 번에 여러 권한 확인](#check-multiple-permissions-at-once)
-- [사용자 등록에 대한 추가 이벤트](#more-events-on-user-registration)
-- [Auth :: once ()에 대해 알고 계셨습니까?](#did-you-know-about-authonce)
-- [사용자 비밀번호 업데이트시 API 토큰 변경](#change-api-token-on-users-password-update)
-- [최고 관리자에 대한 권한 재정의](#override-permissions-for-super-admin)
+- [Check Multiple Permissions at Once](#check-multiple-permissions-at-once)
+- [More Events on User Registration](#more-events-on-user-registration)
+- [Did you know about Auth::once()?](#did-you-know-about-authonce)
+- [Change API Token on users password update](#change-api-token-on-users-password-update)
+- [Override Permissions for Super Admin](#override-permissions-for-super-admin)
 
 ### 한 번에 여러 권한 확인
 
@@ -1696,8 +1696,7 @@ class EventServiceProvider extends ServiceProvider
 
 ### Auth :: once ()에 대해 알고 계셨습니까?
 
-`Auth::once()` 메소드를 사용하여 ONE REQUEST에 대해서만 사용자로 로그인 할 수 있습니다.
- 세션이나 쿠키가 사용되지 않으므로이 방법은 상태 비 저장 API를 구축 할 때 유용 할 수 있습니다.
+`Auth::once()` 메소드를 사용하여 ONE REQUEST에 대해서만 사용자로 로그인 할 수 있습니다. 세션이나 쿠키가 사용되지 않으므로이 방법은 상태 비 저장 API를 구축 할 때 유용 할 수 있습니다.
 
 ```php
 if (Auth::once($credentials)) {
@@ -1739,14 +1738,14 @@ Gate::before(function($user, $ability) {
 });
 ```
 
-## 우편
+## 이메일
 
-⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (인증)](#auth) ➡️ [다음 (장인)](#artisan)
+⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (인증)](#auth) ➡️ [다음 (Artisan)](#artisan)
 
-- [laravel.log로 이메일 테스트](#testing-email-into-laravellog)
+- [Testing email into laravel.log](#testing-email-into-laravellog)
 - [우편물 미리보기](#preview-mailables)
-- [Laravel 알림의 기본 이메일 제목](#default-email-subject-in-laravel-notifications)
-- [누구에게나 알림 보내기](#send-notifications-to-anyone)
+- [Default Email Subject in Laravel Notifications](#default-email-subject-in-laravel-notifications)
+- [Send Notifications to Anyone](#send-notifications-to-anyone)
 
 ### laravel.log로 이메일 테스트
 
@@ -1767,7 +1766,7 @@ Route::get('/mailable', function () {
 
 Laravel 알림을 보내고 toMail **()에** subject를 지정하지 않으면 기본 제목은 알림 클래스 이름 인 CamelCased into Spaces입니다.
 
-따라서 다음이있는 경우 :
+따라서 다음이 있는 경우 :
 
 ```php
 class UserRegistrationEmail extends Notification {
@@ -1775,7 +1774,7 @@ class UserRegistrationEmail extends Notification {
 }
 ```
 
-그러면 제목이 **User Registration Email 인** 이메일을 받게됩니다.
+그러면 제목이 **User Registration Email**인 이메일을 받게됩니다.
 
 ### 누구에게나 알림 보내기
 
@@ -1788,15 +1787,15 @@ Notification::route('mail', 'taylor@example.com')
         ->notify(new InvoicePaid($invoice));
 ```
 
-## 장인
+## Artisan
 
-⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (메일)](#mail) ➡️ [다음 (공장)](#factories)
+⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (메일)](#mail) ➡️ [다음 (팩토리)](#factories)
 
-- [Artisan 명령 매개 변수](#artisan-command-parameters)
-- [유지 관리 모드](#maintenance-mode)
-- [장인 명령 도움말](#artisan-command-help)
-- [정확한 Laravel 버전](#exact-laravel-version)
-- [어디서나 Artisan 명령 실행](#launch-artisan-command-from-anywhere)
+- [Artisan command parameters](#artisan-command-parameters)
+- [Maintenance Mode](#maintenance-mode)
+- [Artisan 명령 도움말](#artisan-command-help)
+- [Exact Laravel version](#exact-laravel-version)
+- [Launch Artisan command from anywhere](#launch-artisan-command-from-anywhere)
 
 ### Artisan 명령 매개 변수
 
@@ -1853,7 +1852,7 @@ php artisan down --message="Upgrading Database" --retry=60 --allow=127.0.0.1
 php artisan up
 ```
 
-### 장인 명령 도움말
+### Artisan 명령 도움말
 
 artisan 명령의 옵션을 확인하려면 `--help` 플래그로 artisan 명령을 실행하십시오. 예를 들어, `php artisan make:model --help` 및 몇 가지 옵션이 있는지 확인하십시오.
 
@@ -1896,14 +1895,14 @@ Route::get('/foo', function () {
 });
 ```
 
-## 공장
+## 팩토리
 
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (Artisan)](#artisan) ➡️ [다음 (로그 및 디버그)](#log-and-debug)
 
-- [공장 콜백](#factory-callbacks)
-- [씨앗 / 공장으로 이미지 생성](#generate-images-with-seedsfactories)
+- [팩토리 콜백](#factory-callbacks)
+- [Seeder / 팩토리로 이미지 생성](#generate-images-with-seedsfactories)
 
-### 공장 콜백
+### 팩토리 콜백
 
 데이터를 시드하기 위해 팩토리를 사용하는 동안 레코드 삽입 후 일부 작업을 수행하는 팩토리 콜백 기능을 제공 할 수 있습니다.
 
@@ -1913,9 +1912,9 @@ $factory->afterCreating(App\User::class, function ($user, $faker) {
 });
 ```
 
-### 씨앗 / 공장으로 이미지 생성
+### Seeder / 팩토리로 이미지 생성
 
-Faker가 텍스트 값뿐만 아니라 이미지도 생성 할 수 있다는 것을 알고 계셨습니까? 여기에서 `avatar` 필드를 참조하십시오. 50x50 이미지가 생성됩니다.
+Faker가 텍스트 값뿐만 아니라 이미지도 생성 할 수 있다는 것을 알고 계셨습니까? 아래의 `avatar` 필드를 참고해보세요. 50x50 이미지가 생성됩니다.
 
 ```php
 $factory->define(User::class, function (Faker $faker) {
@@ -1932,10 +1931,10 @@ $factory->define(User::class, function (Faker $faker) {
 
 ## 로그 및 디버그
 
-⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (공장)](#factories) ➡️ [다음 (API)](#api)
+⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (팩토리)](#factories) ➡️ [다음 (API)](#api)
 
-- [매개 변수로 로깅](#logging-with-parameters)
-- [더 편리한 DD](#more-convenient-dd)
+- [Logging with parameters](#logging-with-parameters)
+- [More convenient DD](#more-convenient-dd)
 
 ### 매개 변수로 로깅
 
@@ -1961,12 +1960,12 @@ $users = User::where('name', 'Taylor')->get()->dd();
 
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (로그 및 디버그)](#log-and-debug) ➡️ [다음 (기타)](#other)
 
-- [API 리소스 : "데이터"유무?](#api-resources-with-or-without-data)
-- [API 반환 "모든 것이 정상입니다"](#api-return-everything-went-ok)
+- [API Resources: With or Without "data"?](#api-resources-with-or-without-data)
+- [API Return "Everything went ok"](#api-return-everything-went-ok)
 
 ### API 리소스 : "데이터"유무?
 
-Eloquent API 리소스를 사용하여 데이터를 반환하면 자동으로 '데이터'에 래핑됩니다. 제거하려면 `JsonResource::withoutWrapping();` `app/Providers/AppServiceProvider.php` 있습니다.
+Eloquent API 리소스를 사용하여 데이터를 반환하면 자동으로 '데이터'에 래핑됩니다. 제거하려면 `app/Providers/AppServiceProvider.php`에 `JsonResource::withoutWrapping();` 를 보면 됩니다
 
 ```php
 class AppServiceProvider extends ServiceProvider
@@ -1980,7 +1979,7 @@ class AppServiceProvider extends ServiceProvider
 
 ### API 반환 "모든 것이 정상입니다"
 
-일부 작업을 수행하지만 응답이없는 API 엔드 포인트가있어 "모든 것이 정상화되었습니다"만 반환하려는 경우 204 상태 코드 "No content"를 반환 할 수 있습니다. 라 라벨에서는 쉽습니다 : `return response()->noContent();` .
+일부 작업을 수행하지만 응답이없는 API 엔드 포인트가있어 "모든 것이 정상화되었습니다"만 반환하려는 경우 204 상태 코드 "No content"를 반환 할 수 있습니다. 라라벨에서는 쉽습니다 : `return response()->noContent();` .
 
 ```php
 public function reorder(Request $request)
@@ -1993,22 +1992,22 @@ public function reorder(Request $request)
 }
 ```
 
-## 다른
+## 기타
 
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (API)](#api)
 
-- [.env의 로컬 호스트](#localhost-in-env)
-- ["작성기 업데이트"를 실행할 때 (NOT)](#when-not-to-run-composer-update)
-- [Composer : 최신 버전 확인](#composer-check-for-newer-versions)
+- [Localhost in .env](#localhost-in-env)
+- [When (NOT) to run "composer update"](#when-not-to-run-composer-update)
+- [Composer: check for newer versions](#composer-check-for-newer-versions)
 - [번역 자동 대문자 화](#auto-capitalize-translations)
 - [단 시간의 탄소](#carbon-with-only-hours)
-- [단일 액션 컨트롤러](#single-action-controllers)
-- [특정 컨트롤러 방법으로 이동](#redirect-to-specific-controller-method)
-- [이전 Laravel 버전 사용](#use-older-laravel-version)
-- [페이지 매김 링크에 매개 변수 추가](#add-parameters-to-pagination-links)
-- [반복 가능한 콜백 함수](#repeatable-callback-functions)
-- [요청 :](#request-has-any)
-- [간단한 페이지 매김](#simple-pagination)
+- [Single Action Controllers](#single-action-controllers)
+- [Redirect to Specific Controller Method](#redirect-to-specific-controller-method)
+- [Use Older Laravel Version](#use-older-laravel-version)
+- [Add Parameters to Pagination Links](#add-parameters-to-pagination-links)
+- [Repeatable Callback Functions](#repeatable-callback-functions)
+- [Request: has any](#request-has-any)
+- [Simple Pagination](#simple-pagination)
 
 ### .env의 로컬 호스트
 
@@ -2022,9 +2021,9 @@ APP_DEBUG=true
 APP_URL=http://localhost
 ```
 
-### "작성기 업데이트"를 실행할 때 (NOT)
+### "컴포저 업데이트"를 실행할 때 (또는 실행하지 않을 때)
 
-Laravel에 대해서는 그다지 중요하지 않지만 ... 프로덕션 라이브 서버에서 `composer update` 를 실행하지 마십시오. 느리고 저장소가 "깨질"것입니다. 항상 `composer update` 컴퓨터에서 로컬로 실행하고 새 `composer.lock` 을 리포지토리에 커밋하고 라이브 서버에서 `composer install` 를 실행하십시오.
+Laravel에 관해 중요한 내용은 아니지만... 프로덕션 라이브 서버에서 `composer update` 를 실행하지 마십시오. 느리고 저장소가 "깨질"것입니다. 항상 `composer update` 컴퓨터에서 로컬로 실행하고 새 `composer.lock` 을 리포지토리에 커밋하고 라이브 서버에서는 `composer install` 를 실행하십시오.
 
 ### Composer : 최신 버전 확인
 
@@ -2038,7 +2037,7 @@ ralouphie/getallheaders     2.0.5 3.0.3 A polyfill for getallheaders.
 sebastian/global-state      2.0.0 3.0.0 Snapshotting of global state
 ```
 
-### 번역 자동 대문자
+### 자동 대문자 번역
 
 번역 파일 ( `resources/lang` )에서 변수를 `:variable` 로 지정할 수있을뿐만 아니라 `:VARIABLE` 또는 `:Variable` 로 대문자로 지정할 수도 있습니다. 그러면 전달하는 값도 자동으로 대문자로 표시됩니다.
 
@@ -2050,9 +2049,9 @@ sebastian/global-state      2.0.0 3.0.0 Snapshotting of global state
 echo __('messages.welcome', ['name' => 'taylor']);
 ```
 
-### 단 시간의 탄소
+### 시간만 사용하는 카본(Carbon)
 
-초 및,또는 분없이 현재 날짜를 보려면 `setSeconds(0) ` 또는 `setMinutes(0)`과 같은 Carbon의 메서드를 사용하세요.
+초 또는 분없이 현재 날짜를 보려면 `setSeconds(0) ` 또는 `setMinutes(0)`과 같은 Carbon의 메서드를 사용하세요.
 
 ```php
 // 2020-04-20 08:12:34
@@ -2072,19 +2071,19 @@ echo now()->startOfHour();
 
 하나의 액션으로 컨트롤러를 만들고 싶다면 `__invoke()` 메서드를 사용하고 "invokable"컨트롤러를 만들 수도 있습니다.
 
-노선:
+경로:
 
 ```php
 Route::get('user/{id}', 'ShowProfile');
 ```
 
-장인:
+Artisan:
 
 ```bash
 php artisan make:controller ShowProfile --invokable
 ```
 
-제어 장치:
+컨트롤러:
 
 ```php
 class ShowProfile extends Controller
@@ -2098,7 +2097,7 @@ class ShowProfile extends Controller
 }
 ```
 
-### 특정 컨트롤러 방법으로 이동
+### 특정 컨트롤러 메서드로 이동
 
 URL이나 특정 경로뿐만 아니라 특정 컨트롤러의 특정 메서드로 `redirect()` 하고 매개 변수를 전달할 수도 있습니다. 이것을 사용하십시오 :
 
@@ -2114,9 +2113,9 @@ return redirect()->action('SomeController@method', ['param' => $value]);
 composer create-project --prefer-dist laravel/laravel project "7.*"
 ```
 
-7. *를 원하는 버전으로 변경하십시오.
+*를 원하는 버전으로 변경하십시오.
 
-### 페이지 매김 링크에 매개 변수 추가
+### 페이지네이션 링크에 매개 변수 추가
 
 기본 페이지 매김 링크에서 추가 매개 변수를 전달하거나 원래 쿼리 문자열을 보존하거나 특정 `#xxxxx` 앵커를 가리킬 수도 있습니다.
 
@@ -2130,21 +2129,21 @@ composer create-project --prefer-dist laravel/laravel project "7.*"
 
 ### 반복 가능한 콜백 함수
 
-여러 번 재사용해야하는 콜백 함수가있는 경우 변수에 할당 한 다음 다시 사용할 수 있습니다.
+여러 번 재사용해야하는 콜백 함수가 있는 경우 변수에 할당 한 다음 다시 사용할 수 있습니다.
 
 ```php
 $userCondition = function ($query) {
     $query->where('user_id', auth()->id());
 };
 
-// Get articles that have comments from this user
-// And return only those comments from this user
+// 이 사용자의 댓글이 있는 게시글 가져 오기
+// 그리고 이 사용자의 댓글 만 반환
 $articles = Article::with(['comments' => $userCondition])
     ->whereHas('comments', $userCondition)
     ->get();
 ```
 
-### 요청 :
+### 리퀘스트 : hasAny
 
 당신은하지 하나 개의 매개 변수 만 확인할 수 있습니다 `$request->has()` 뿐만 아니라 함께 여러 매개 변수의 존재에 대한 방법을 확인 `$request->hasAny()﻿`:
 
@@ -2159,9 +2158,9 @@ public function store(Request $request)
 }
 ```
 
-### 단순 페이지 매김
+### 단순 페이지네이션
 
-페이지 매김에서 모든 페이지 번호 대신 "이전 / 다음"링크 만 갖고 싶다면 (그리고 그로 인해 DB 쿼리 수가 더 적 으면) `paginate()`를 `simplePaginate()` :
+페이지 매김에서 모든 페이지 번호 대신 "이전 / 다음"링크 만 갖고 싶다면 (그리고 그로 인해 DB 쿼리 수가 더 적길 바라면) `paginate()`를 `simplePaginate()` :
 
 ```php
 // Instead of
