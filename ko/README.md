@@ -1,6 +1,6 @@
-# 라 라벨 팁 한국어
+# 라라벨 팁 한국어
 
-라라벨 개발자들을 위한 멋진 Laravel 팁과 트릭 모음. PR 및 아이디어를 환영합니다! <br>이 문서는 [PovilasKorop](https://github.com/PovilasKorop) 과 [MarceauKa](https://github.com/MarceauKa) 의 아이디어를 번역한 문서입니다.
+라라벨 개발자들을 위한 멋진 Laravel 팁과 트릭 모음입니다. PR 및 아이디어를 환영합니다! <br>이 문서는 [PovilasKorop](https://github.com/PovilasKorop) 과 [MarceauKa](https://github.com/MarceauKa) 의 아이디어를 번역한 문서입니다.
 
 **2021 년 1 월 29 일 업데이트** : 현재 **125 개의 팁** 이 14 개 섹션으로 나뉩니다.
 
@@ -1520,7 +1520,7 @@ Route::resource('p', ProductController::class)->names('products');
 
 ### "지금"또는 "어제"단어로 날짜 확인
 
-이전 / 이후 규칙에 따라 날짜의 유효성을 검사하고 `tomorrow` , `now` , `yesterday` 와 같은 다양한 문자열을 매개 변수로 전달할 수 있습니다. 예 : `'start_date' => 'after:now'` . 후드 아래에서 strtotime ()을 사용하고 있습니다.
+이전 / 이후 규칙에 따라 날짜의 유효성을 검사하고 `tomorrow` , `now` , `yesterday` 와 같은 다양한 문자열을 매개 변수로 전달할 수 있습니다. 예 : `'start_date' => 'after:now'` . 내부적으로는 strtotime()을 사용하고 있습니다.
 
 ```php
 $rules = [
@@ -1565,7 +1565,7 @@ class StoreUserRequest extends FormRequest
 
 ### 검증 준비
 
-기본 Laravel 유효성 검사 전에 일부 필드를 수정하려는 경우, 즉 해당 필드를 "준비"하려면 무엇을 추측해야합니다. `FormRequest` 클래스에 `prepareForValidation()` 메소드가 있습니다.
+기본 Laravel 유효성 검사 전에 일부 필드를 수정하려는 경우, 즉 해당 필드를 "준비"하려면 무엇을 추측해야합니다. 이것을 위한`FormRequest` 클래스에 `prepareForValidation()` 메소드가 있습니다.
 
 ```php
 protected function prepareForValidation()
@@ -1594,7 +1594,7 @@ $request->validate([
 - [컬렉션에서 NULL로 필터링하지 마십시오.](#dont-filter-by-null-in-collections)
 - [사용자 정의 콜백 함수가있는 콜렉션에서 groupBy 사용](#use-groupby-on-collections-with-custom-callback-function)
 - [한 행의 여러 수집 방법](#multiple-collection-methods-in-a-row)
-- [페이지 매김으로 합계 계산](#calculate-sum-with-pagination)
+- [페이지네이션에서 합계 계산](https://gitlocalize.com/repo/5718/ko/README.md#calculate-sum-with-pagination)
 
 ### 컬렉션에서 NULL로 필터링하지 마십시오.
 
@@ -1637,9 +1637,9 @@ echo 'Average age: ' . $users->avg('age');
 echo 'Total budget: ' . $users->sum('budget');
 ```
 
-### 페이지 매김으로 합계 계산
+### 페이이지네이션 합계 계산
 
-PAGINATED 컬렉션 만있는 경우 모든 레코드의 합계를 계산하는 방법은 무엇입니까? 페이지 매김 전에 계산을 수행하지만 동일한 쿼리에서 수행하십시오.
+PAGINATED 컬렉션 만있는 경우 모든 레코드의 합계를 계산하는 방법은 무엇입니까? 동일한 쿼리에서 페이지네이션 전에 계산을 실행하십시오.
 
 ```php
 // How to get sum of post_views with pagination?
@@ -1661,7 +1661,7 @@ $posts = $query->paginate(10);
 
 - [한 번에 여러 권한 확인](#check-multiple-permissions-at-once)
 - [사용자 등록에 대한 추가 이벤트](#more-events-on-user-registration)
-- [Auth :: once ()에 대해 알고 계셨습니까?](#did-you-know-about-authonce)
+- [Auth::once()에 대해 알고 계셨습니까?](https://gitlocalize.com/repo/5718/ko/README.md#did-you-know-about-authonce)
 - [사용자 비밀번호 업데이트시 API 토큰 변경](#change-api-token-on-users-password-update)
 - [최고 관리자에 대한 권한 재정의](#override-permissions-for-super-admin)
 
@@ -1694,9 +1694,9 @@ class EventServiceProvider extends ServiceProvider
     ];
 ```
 
-### Auth :: once ()에 대해 알고 계셨습니까?
+### Auth::once()에 대해 알고 계셨습니까?
 
-`Auth::once()` 메소드를 사용하여 ONE REQUEST에 대해서만 사용자로 로그인 할 수 있습니다. 세션이나 쿠키가 사용되지 않으므로이 방법은 상태 비 저장 API를 구축 할 때 유용 할 수 있습니다.
+`Auth::once()` 메소드를 사용하여 ONE REQUEST에 대해서만 사용자로 로그인 할 수 있습니다. 세션이나 쿠키가 사용되지 않으므로 이 방법은 상태를 저장하지 않는 API를 구축 할 때 유용 할 수 있습니다.
 
 ```php
 if (Auth::once($credentials)) {
@@ -1743,7 +1743,7 @@ Gate::before(function($user, $ability) {
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (인증)](#auth) ➡️ [다음 (Artisan)](#artisan)
 
 - [laravel.log로 이메일 테스트](#testing-email-into-laravellog)
-- [우편물 미리보기](#preview-mailables)
+- [이메일 미리보기](#preview-mailables)
 - [Laravel 알림의 기본 이메일 제목](#default-email-subject-in-laravel-notifications)
 - [누구에게나 알림 보내기](#send-notifications-to-anyone)
 
@@ -1751,7 +1751,7 @@ Gate::before(function($user, $ability) {
 
 앱에서 이메일 콘텐츠를 테스트하고 싶지만 Mailgun과 같은 설정을 할 수 없거나 설정하지 않으려는 경우 `.env` 매개 변수 `MAIL_DRIVER=log` 를 사용하면 모든 이메일이 실제로 전송되는 대신 `storage/logs/laravel.log` 파일에 저장됩니다. .
 
-### 우편물 미리보기
+### 이메일 미리보기
 
 Mailables를 사용하여 이메일을 보내는 경우 브라우저에서 직접 보내지 않고 결과를 미리 볼 수 있습니다. 경로 결과로 Mailable을 반환하십시오.
 
@@ -1764,9 +1764,9 @@ Route::get('/mailable', function () {
 
 ### Laravel 알림의 기본 이메일 제목
 
-Laravel 알림을 보내고 toMail **()에** subject를 지정하지 않으면 기본 제목은 알림 클래스 이름 인 CamelCased into Spaces입니다.
+Laravel 알림을 보내고 **toMail()에** subject를 지정하지 않으면 기본 제목은 알림 클래스 이름 인 CamelCased into Spaces입니다.
 
-따라서 다음이 있는 경우 :
+따라서 다음과 같은 경우 :
 
 ```php
 class UserRegistrationEmail extends Notification {
@@ -1792,7 +1792,7 @@ Notification::route('mail', 'taylor@example.com')
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (메일)](#mail) ➡️ [다음 (팩토리)](#factories)
 
 - [Artisan 명령 매개 변수](#artisan-command-parameters)
-- [유지 관리 모드](#maintenance-mode)
+- [유지보수 모드](https://gitlocalize.com/repo/5718/ko/README.md#maintenance-mode)
 - [Artisan 명령 도움말](#artisan-command-help)
 - [정확한 Laravel 버전](#exact-laravel-version)
 - [어디서나 Artisan 명령 실행](#launch-artisan-command-from-anywhere)
@@ -1814,9 +1814,9 @@ $name = $this->anticipate('What is your name?', ['Taylor', 'Dayle']);
 $name = $this->choice('What is your name?', ['Taylor', 'Dayle'], $defaultIndex);
 ```
 
-### 유지 관리 모드
+### 유지보수 모드
 
-페이지에서 유지 관리 모드를 활성화하려면 down Artisan 명령을 실행하십시오.
+유지보수 모드를 활성화하려면 Artisan down 명령을 실행하십시오.
 
 ```bash
 php artisan down
@@ -1824,7 +1824,7 @@ php artisan down
 
 그러면 사람들은 기본 503 상태 페이지를 보게됩니다.
 
-Laravel 8에서 플래그를 제공 할 수도 있습니다.
+라라벨 8에서 플래그를 제공 할 수도 있습니다.
 
 - 사용자가 리디렉션되어야하는 경로
 - 미리 렌더링되어야하는 뷰
@@ -1836,7 +1836,7 @@ Laravel 8에서 플래그를 제공 할 수도 있습니다.
 php artisan down --redirect="/" --render="errors::503" --secret="1630542a-246b-4b66-afa1-dd72a4c43515" --status=200 --retry=60
 ```
 
-라 라벨 8 이전 :
+라라벨 8 이전 :
 
 - 표시 될 메시지
 - X 초마다 페이지 다시로드 재시도
@@ -1846,7 +1846,7 @@ php artisan down --redirect="/" --render="errors::503" --secret="1630542a-246b-4
 php artisan down --message="Upgrading Database" --retry=60 --allow=127.0.0.1
 ```
 
-유지 관리 작업을 마쳤 으면 다음을 실행하십시오.
+유지보수 작업을 마쳤으면 다음을 실행하십시오.
 
 ```bash
 php artisan up
@@ -1883,7 +1883,7 @@ Options:
 
 ### 어디서나 Artisan 명령 실행
 
-Artisan 명령이있는 경우 터미널뿐만 아니라 코드의 어느 곳에서나 매개 변수를 사용하여 실행할 수 있습니다. Artisan :: call () 메서드 사용 :
+Artisan 명령의 경우 터미널 뿐만 아니라  Artisan::call() 메서드 사용하여 매개 변수와 함께 코드의 어느 곳에서나 실행할 수 있습니다.
 
 ```php
 Route::get('/foo', function () {
@@ -1904,7 +1904,7 @@ Route::get('/foo', function () {
 
 ### 팩토리 콜백
 
-데이터를 시드하기 위해 팩토리를 사용하는 동안 레코드 삽입 후 일부 작업을 수행하는 팩토리 콜백 기능을 제공 할 수 있습니다.
+데이터를 시드하기 위해 팩토리를 사용하는 동안 레코드 삽입 후 일부 작업을 수행하는 팩토리 콜백 기능을 사용 할 수 있습니다.
 
 ```php
 $factory->afterCreating(App\User::class, function ($user, $faker) {
@@ -1949,10 +1949,10 @@ Log::info('User failed to login.', ['id' => $user->id]);
 `dd($result)` 를 수행하는 대신 Eloquent 문장이나 컬렉션의 끝에 직접 `->dd()` 를 메소드로 넣을 수 있습니다.
 
 ```php
-// Instead of
+// 이것 대신
 $users = User::where('name', 'Taylor')->get();
 dd($users);
-// Do this
+// 이렇게 할 수 있습니다
 $users = User::where('name', 'Taylor')->get()->dd();
 ```
 
@@ -1961,7 +1961,7 @@ $users = User::where('name', 'Taylor')->get()->dd();
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (로그 및 디버그)](#log-and-debug) ➡️ [다음 (기타)](#other)
 
 - [API 리소스 : "데이터"유무?](#api-resources-with-or-without-data)
-- [API 반환 "모든 것이 정상입니다"](#api-return-everything-went-ok)
+- [API에서 "모든 것이 정상입니다"를 반환하기](https://gitlocalize.com/repo/5718/ko/README.md#api-return-everything-went-ok)
 
 ### API 리소스 : "데이터"유무?
 
@@ -1977,9 +1977,9 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-### API 반환 "모든 것이 정상입니다"
+### API에서 "모든 것이 정상입니다"를 반환하기
 
-일부 작업을 수행하지만 응답이없는 API 엔드 포인트가있어 "모든 것이 정상화되었습니다"만 반환하려는 경우 204 상태 코드 "No content"를 반환 할 수 있습니다. 라라벨에서는 쉽습니다 : `return response()->noContent();` .
+일부 작업을 수행하지만 응답이 없는 API 엔드포인트라서 "모든 것이 정상입니다"만 반환하려는 경우 204 상태 코드 "No content"를 반환 할 수 있습니다. 라라벨에서는 이것을 쉽게 처리할 수 있습니다. `return response()->noContent();`
 
 ```php
 public function reorder(Request $request)
@@ -1997,21 +1997,21 @@ public function reorder(Request $request)
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (API)](#api)
 
 - [.env의 로컬 호스트](#localhost-in-env)
-- ["작성기 업데이트"를 실행할 때 (NOT)](#when-not-to-run-composer-update)
+- ["컴포저 업데이트"를 실행할 때 (또는 실행하지 않을 때)](https://gitlocalize.com/repo/5718/ko/README.md#when-not-to-run-composer-update)
 - [Composer : 최신 버전 확인](#composer-check-for-newer-versions)
-- [번역 자동 대문자 화](#auto-capitalize-translations)
-- [단 시간의 탄소](#carbon-with-only-hours)
+- [자동 대문자 번역](https://gitlocalize.com/repo/5718/ko/README.md#auto-capitalize-translations)
+- [시간만 사용하는 카본(Carbon)](https://gitlocalize.com/repo/5718/ko/README.md#carbon-with-only-hours)
 - [단일 액션 컨트롤러](#single-action-controllers)
-- [특정 컨트롤러 방법으로 이동](#redirect-to-specific-controller-method)
+- [특정 컨트롤러 메서드로 이동](https://gitlocalize.com/repo/5718/ko/README.md#redirect-to-specific-controller-method)
 - [이전 Laravel 버전 사용](#use-older-laravel-version)
-- [페이지 매김 링크에 매개 변수 추가](#add-parameters-to-pagination-links)
+- [페이지네이션 링크에 매개 변수 추가](https://gitlocalize.com/repo/5718/ko/README.md#add-parameters-to-pagination-links)
 - [반복 가능한 콜백 함수](#repeatable-callback-functions)
-- [요청 :](#request-has-any)
-- [간단한 페이지 매김](#simple-pagination)
+- [리퀘스트 : hasAny](https://gitlocalize.com/repo/5718/ko/README.md#request-has-any)
+- [간단한 페이지네이션](https://gitlocalize.com/repo/5718/ko/README.md#simple-pagination)
 
 ### .env의 로컬 호스트
 
-`.env` 파일의 `APP_URL` 을 `http://localhost` 에서 실제 URL로 변경하는 것을 잊지 마십시오. 이메일 알림 및 다른 곳에있는 모든 링크의 기반이됩니다.
+`.env` 파일의 `APP_URL` 을 `http://localhost` 에서 실제 URL로 변경하는 것을 잊지 마십시오. 이메일 알림 및 다른 곳에 있는 모든 링크의 기반이됩니다.
 
 ```
 APP_NAME=Laravel
@@ -2039,7 +2039,7 @@ sebastian/global-state      2.0.0 3.0.0 Snapshotting of global state
 
 ### 자동 대문자 번역
 
-번역 파일 ( `resources/lang` )에서 변수를 `:variable` 로 지정할 수있을뿐만 아니라 `:VARIABLE` 또는 `:Variable` 로 대문자로 지정할 수도 있습니다. 그러면 전달하는 값도 자동으로 대문자로 표시됩니다.
+번역 파일 ( `resources/lang` )에서 변수를 `:variable` 로 지정할 수있을 뿐만 아니라 `:VARIABLE` 또는 `:Variable` 로 대문자로 지정할 수도 있습니다. 그러면 전달하는 값도 자동으로 대문자로 표시됩니다.
 
 ```php
 // resources/lang/en/messages.php
@@ -2051,7 +2051,7 @@ echo __('messages.welcome', ['name' => 'taylor']);
 
 ### 시간만 사용하는 카본(Carbon)
 
-초 또는 분없이 현재 날짜를 보려면 `setSeconds(0) ` 또는 `setMinutes(0)`과 같은 Carbon의 메서드를 사용하세요.
+초 또는 분없이 현재 날짜를 보려면 `setSeconds(0)` 또는 `setMinutes(0)`과 같은 Carbon의 메서드를 사용하세요.
 
 ```php
 // 2020-04-20 08:12:34
@@ -2071,7 +2071,7 @@ echo now()->startOfHour();
 
 하나의 액션으로 컨트롤러를 만들고 싶다면 `__invoke()` 메서드를 사용하고 "invokable"컨트롤러를 만들 수도 있습니다.
 
-경로:
+라우트:
 
 ```php
 Route::get('user/{id}', 'ShowProfile');
@@ -2117,7 +2117,7 @@ composer create-project --prefer-dist laravel/laravel project "7.*"
 
 ### 페이지네이션 링크에 매개 변수 추가
 
-기본 페이지 매김 링크에서 추가 매개 변수를 전달하거나 원래 쿼리 문자열을 보존하거나 특정 `#xxxxx` 앵커를 가리킬 수도 있습니다.
+기본 페이지네이션 링크에서 추가 매개 변수를 전달하거나 원래 쿼리 문자열을 보존하거나 특정 `#xxxxx` 앵커를 가리킬 수도 있습니다.
 
 ```
 {{ $users->appends(['sort' => 'votes'])->links() }}
@@ -2145,7 +2145,7 @@ $articles = Article::with(['comments' => $userCondition])
 
 ### 리퀘스트 : hasAny
 
-당신은하지 하나 개의 매개 변수 만 확인할 수 있습니다 `$request->has()` 뿐만 아니라 함께 여러 매개 변수의 존재에 대한 방법을 확인 `$request->hasAny()﻿`:
+`$request->has()` 메서드로 하나의 매개 변수를 확인할 수있을 뿐만 아니라 `$request->hasAny()`를 사용하여 여러 매개 변수가 있는지 확인할 수도 있습니다.
 
 ```php
 public function store(Request $request)
@@ -2160,7 +2160,7 @@ public function store(Request $request)
 
 ### 단순 페이지네이션
 
-페이지 매김에서 모든 페이지 번호 대신 "이전 / 다음"링크 만 갖고 싶다면 (그리고 그로 인해 DB 쿼리 수가 더 적길 바라면) `paginate()`를 `simplePaginate()` :
+페이지네이션에서 모든 페이지 번호 대신 "이전 / 다음"링크 만 갖고 싶다면 (그리고 그로 인해 DB 쿼리 수가 더 적길 바라면) `paginate()`대신 `simplePaginate()` 를 사용하세요.
 
 ```php
 // Instead of
