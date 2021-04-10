@@ -3,7 +3,7 @@
 Awesome Laravel tips and tricks for all artisans. PR and ideas are welcome!  
 An idea by [PovilasKorop](https://github.com/PovilasKorop) and [MarceauKa](https://github.com/MarceauKa).
 
-__Update 29 Jan 2021__: Currently there are __125 tips__ divided into 14 sections.
+__Update 31 Mar 2021__: Currently there are __126 tips__ divided into 14 sections.
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ __Update 29 Jan 2021__: Currently there are __125 tips__ divided into 14 section
 - [Factories](#factories) (2 tips)
 - [Log and debug](#log-and-debug) (2 tips)
 - [API](#api) (2 tips)
-- [Other](#other) (12 tips)
+- [Other](#other) (13 tips)
 
 
 ## DB Models and Eloquent
@@ -30,7 +30,6 @@ __Update 29 Jan 2021__: Currently there are __125 tips__ divided into 14 section
 - [Eloquent where date methods](#eloquent-where-date-methods)
 - [Increments and decrements](#increments-and-decrements)
 - [No timestamp columns](#no-timestamp-columns)
-- [Set logged in user with Observers](#set-logged-in-user-with-observers)
 - [Soft-deletes: multiple restore](#soft-deletes-multiple-restore)
 - [Model all: columns](#model-all-columns)
 - [To Fail or not to Fail](#to-fail-or-not-to-fail)
@@ -58,6 +57,7 @@ __Update 29 Jan 2021__: Currently there are __125 tips__ divided into 14 section
 - [Change Format of Created_at and Updated_at](#change-format-of-created_at-and-updated_at)
 - [Storing Array Type into JSON](#storing-array-type-into-json)
 - [Make a Copy of the Model](#make-a-copy-of-the-model)
+- [Reduce Memory](#reduce-memory)
 
 ### Eloquent where date methods
 
@@ -91,26 +91,12 @@ class Company extends Model
 }
 ```
 
-### Set logged in user with Observers
-
-Use `make:observer` and fill in `creating()` method to automatically set up `user_id` field for current logged in user.
-
-```php
-class PostObserver
-{
-    public function creating(Post $post)
-    {
-        $post->user_id = auth()->id();
-    }
-}
-```
-
 ### Soft-deletes: multiple restore
 
 When using soft-deletes, you can restore multiple rows in one sentence.
 
 ```php
-Post::withTrashed()->where('author_id', 1)->restore();
+Post::onlyTrashed()->where('author_id', 1)->restore();
 ```
 
 ### Model all: columns
@@ -372,7 +358,7 @@ $users = DB::table('users')->get();
 
 If you need to execute a simple SQL query, without getting any results - like changing something in DB schema, you can just do `DB::statement()`.
 
-```
+```php
 DB::statement('DROP TABLE users');
 DB::statement('ALTER TABLE projects AUTO_INCREMENT=123');
 ```
@@ -442,7 +428,7 @@ class Post extends Model
 Tip given by [@syofyanzuhad](https://github.com/syofyanzuhad)
 
 To change the format of `created_at` you can add a method in your model like this:
-```
+```php
 public function getCreatedAtFormattedAttribute()
 {
    return $this->created_at->format('H:i d, M Y');
@@ -452,7 +438,7 @@ So you can use it `$entry->created_at_formatted` when it's needed.
 It will return the `created_at` attribute like this: `04:19 23, Aug 2020`.
 
 And also for changing format of `updated_at` attribute, you can add this method :
-```
+```php
 public function getUpdatedAtFormattedAttribute()
 {
    return $this->updated_at->format('H:i d, M Y');
@@ -467,7 +453,7 @@ Tip given by [@pratiksh404](https://github.com/pratiksh404)
 
 If you have input field which takes an array and you have to store it as a JSON, you can use `$casts` property in your model. Here `images` is a JSON attribute.
 
-```
+```php
 protected $casts = [
     'images' => 'array',
 ];
@@ -496,6 +482,21 @@ $billing = $shipping->replicate()->fill([
 
 $billing->save();
 ```
+
+### Reduce Memory 
+
+Sometimes we need to load a huge amount of data into memory. For example: 
+```php
+$orders = Order::all();
+```
+But this can be slow if we have really huge data, because Laravel prepares objects of the Model class.
+In such cases, Laravel has a handy function `toBase()`
+
+```php
+$orders = Order::toBase()->get();
+//$orders will contain `Illuminate\Support\Collection` with objects `StdClass`.
+```
+By calling this method, it will fetch the data from the database, but it will not prepare the Model class.
 
 
 ## Models Relations
@@ -802,7 +803,7 @@ In many-to-many relationship, your pivot table may contain extra fields, and eve
 
 Then generate a separate Pivot Model:
 
-```
+```bash
 php artisan make:model RoleUser --pivot
 ```
 
@@ -974,6 +975,8 @@ php artisan make:migration "create transactions table"
 Source: [Steve O on Twitter](https://twitter.com/stephenoldham/status/1353647972991578120)
 
 ### Create Column after Another Column
+
+_Notice: Only MySQL_
 
 If you're adding a new column to the existing table, it doesn't necessarily has to become the last in the list. You can specify, after which column it should be created:
 
@@ -1989,6 +1992,8 @@ public function reorder(Request $request)
 - [Repeatable Callback Functions](#repeatable-callback-functions)
 - [Request: has any](#request-has-any)
 - [Simple Pagination](#simple-pagination)
+- [Data Get Function](#data-get-function)
+
 
 ### Localhost in .env
 
@@ -2087,7 +2092,7 @@ return redirect()->action('SomeController@method', ['param' => $value]);
 
 If you want to use OLDER version instead of the newest Laravel, use this command:
 
-```
+```bash
 composer create-project --prefer-dist laravel/laravel project "7.*"
 ```
 
@@ -2097,7 +2102,7 @@ Change 7.* to whichever version you want.
 
 In default Pagination links, you can pass additional parameters, preserve the original query string, or even point to a specific `#xxxxx` anchor. 
 
-```
+```blade
 {{ $users->appends(['sort' => 'votes'])->links() }}
 
 {{ $users->withQueryString()->links() }}
@@ -2147,4 +2152,25 @@ $users = User::paginate(10);
 
 // You can do this
 $users = User::simplePaginate(10);
+```
+
+### Data Get Function
+
+If you have an array complex data structure, for example a nested array with objects. You can use `data_get()` helper function retrieves a value from a nested array or object using "dot" notation and wildcard:
+
+```php
+// We have an array
+[ 
+  0 => 
+	['user_id' =>'some user id', 'created_at' => 'some timestamp', 'product' => {object Product}, etc], 
+  1 =>  
+  	['user_id' =>'some user id', 'created_at' => 'some timestamp', 'product' => {object Product}, etc],  
+  2 =>  etc
+]
+
+// Now we want to get all products ids. We can do like this:
+
+data_get($yourArray,  '*.product.id');
+
+// Now we have all products ids [1, 2, 3, 4, 5, etc...]
 ```
