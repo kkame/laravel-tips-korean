@@ -1164,7 +1164,7 @@ adminlte.header를 로드하려고 시도합니다. 해당 파일이 없을 경�
 - [경로에 매개 변수로 쿼리스트링을 추가하기](#query-string-parameters-to-routes)
 - [파일별로 라우트 분리](#separate-routes-by-files)
 - [Translate Resource Verbs](#translate-resource-verbs)
-- [커스텀 리소스 라우트 네임](https://gitlocalize.com/repo/5718/ko/README.md#custom-resource-route-names)
+- [커스텀 리소스 라우트 네임](#custom-resource-route-names)
 - [더 읽기 쉬운 경로 목록](#more-readable-route-list)
 
 ### 그룹 내의 라우팅 그룹
@@ -1594,7 +1594,7 @@ $request->validate([
 - [컬렉션에서 NULL로 필터링하지 마십시오.](#dont-filter-by-null-in-collections)
 - [사용자 정의 콜백 함수가있는 콜렉션에서 groupBy 사용](#use-groupby-on-collections-with-custom-callback-function)
 - [한 행의 여러 수집 방법](#multiple-collection-methods-in-a-row)
-- [페이지네이션에서 합계 계산](https://gitlocalize.com/repo/5718/ko/README.md#calculate-sum-with-pagination)
+- [페이지네이션에서 합계 계산](#calculate-sum-with-pagination)
 
 ### 컬렉션에서 NULL로 필터링하지 마십시오.
 
@@ -1661,7 +1661,7 @@ $posts = $query->paginate(10);
 
 - [한 번에 여러 권한 확인](#check-multiple-permissions-at-once)
 - [사용자 등록에 대한 추가 이벤트](#more-events-on-user-registration)
-- [Auth::once()에 대해 알고 계셨습니까?](https://gitlocalize.com/repo/5718/ko/README.md#did-you-know-about-authonce)
+- [Auth::once()에 대해 알고 계셨습니까?](#did-you-know-about-authonce)
 - [사용자 비밀번호 업데이트시 API 토큰 변경](#change-api-token-on-users-password-update)
 - [최고 관리자에 대한 권한 재정의](#override-permissions-for-super-admin)
 
@@ -1792,7 +1792,7 @@ Notification::route('mail', 'taylor@example.com')
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (메일)](#mail) ➡️ [다음 (팩토리)](#factories)
 
 - [Artisan 명령 매개 변수](#artisan-command-parameters)
-- [유지보수 모드](https://gitlocalize.com/repo/5718/ko/README.md#maintenance-mode)
+- [유지보수 모드](#maintenance-mode)
 - [Artisan 명령 도움말](#artisan-command-help)
 - [정확한 Laravel 버전](#exact-laravel-version)
 - [어디서나 Artisan 명령 실행](#launch-artisan-command-from-anywhere)
@@ -1961,7 +1961,7 @@ $users = User::where('name', 'Taylor')->get()->dd();
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (로그 및 디버그)](#log-and-debug) ➡️ [다음 (기타)](#other)
 
 - [API 리소스 : "데이터"유무?](#api-resources-with-or-without-data)
-- [API에서 "모든 것이 정상입니다"를 반환하기](https://gitlocalize.com/repo/5718/ko/README.md#api-return-everything-went-ok)
+- [API에서 "모든 것이 정상입니다"를 반환하기](#api-return-everything-went-ok)
 
 ### API 리소스 : "데이터"유무?
 
@@ -1997,17 +1997,17 @@ public function reorder(Request $request)
 ⬆️ [맨 위로 이동](#laravel-tips) ⬅️ [이전 (API)](#api)
 
 - [.env의 로컬 호스트](#localhost-in-env)
-- ["컴포저 업데이트"를 실행할 때 (또는 실행하지 않을 때)](https://gitlocalize.com/repo/5718/ko/README.md#when-not-to-run-composer-update)
+- ["컴포저 업데이트"를 실행할 때 (또는 실행하지 않을 때)](#when-not-to-run-composer-update)
 - [Composer : 최신 버전 확인](#composer-check-for-newer-versions)
-- [자동 대문자 번역](https://gitlocalize.com/repo/5718/ko/README.md#auto-capitalize-translations)
-- [시간만 사용하는 카본(Carbon)](https://gitlocalize.com/repo/5718/ko/README.md#carbon-with-only-hours)
+- [자동 대문자 번역](#auto-capitalize-translations)
+- [시간만 사용하는 카본(Carbon)](#carbon-with-only-hours)
 - [단일 액션 컨트롤러](#single-action-controllers)
-- [특정 컨트롤러 메서드로 이동](https://gitlocalize.com/repo/5718/ko/README.md#redirect-to-specific-controller-method)
+- [특정 컨트롤러 메서드로 이동](#redirect-to-specific-controller-method)
 - [이전 Laravel 버전 사용](#use-older-laravel-version)
-- [페이지네이션 링크에 매개 변수 추가](https://gitlocalize.com/repo/5718/ko/README.md#add-parameters-to-pagination-links)
+- [페이지네이션 링크에 매개 변수 추가](#add-parameters-to-pagination-links)
 - [반복 가능한 콜백 함수](#repeatable-callback-functions)
-- [리퀘스트 : hasAny](https://gitlocalize.com/repo/5718/ko/README.md#request-has-any)
-- [간단한 페이지네이션](https://gitlocalize.com/repo/5718/ko/README.md#simple-pagination)
+- [리퀘스트 : hasAny](#request-has-any)
+- [간단한 페이지네이션](#simple-pagination)
 
 ### .env의 로컬 호스트
 
