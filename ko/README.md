@@ -6,20 +6,20 @@
 
 ## 목차
 
-- [DB 모델 및 Eloquent](#db-models-and-eloquent) (31 개의 팁)
-- [모델 관계](#models-relations) (팁 22 개)
-- [마이그레이션](#migrations) (팁 8 개)
-- [뷰](#views) (팁 8 개)
-- [라우팅](#routing) (팁 13 개)
-- [유효성 검사](#validation) (7 개 팁)
-- [컬렉션](#collections) (팁 4 개)
-- [인증](#auth) (팁 5 개)
-- [메일](#mail) (팁 4 개)
-- [Artisan](#artisan) (팁 5 개)
-- [팩토리](#factories) (팁 2 개)
-- [로그 및 디버그](#log-and-debug) (2 개의 팁)
-- [API](#api) (팁 2 개)
-- [기타](#other) (팁 12 개)
+- [DB 모델 및 Eloquent](#db-models-and-eloquent) (31 개)
+- [모델 관계](#models-relations) (22 개)
+- [마이그레이션](#migrations) (8 개)
+- [뷰](#views) (8 개)
+- [라우팅](#routing) (13 개)
+- [유효성 검사](#validation) (7 개)
+- [컬렉션](#collections) (4 개)
+- [인증](#auth) (5 개)
+- [메일](#mail) (4 개)
+- [Artisan](#artisan) (5 개)
+- [팩토리](#factories) (2 개)
+- [로그 및 디버그](#log-and-debug) (2 개)
+- [API](#api) (2 개)
+- [기타](#other) (12 개)
 
 ## DB 모델 및 Eloquent <a id="db-models-and-eloquent"></a>
 
